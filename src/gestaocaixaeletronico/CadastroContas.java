@@ -1,32 +1,42 @@
 package gestaocaixaeletronico;
 import gestaocontas.Conta;
+import java.util.ArrayList;
 
 public class CadastroContas {
 
-    private Conta[] contas;
+    private ArrayList<Conta> contas;
+
     private int numeroDeContas;
 
-    public CadastroContas(int numeroDeContas) {
-        this.contas = new Conta[numeroDeContas];
+    public CadastroContas() {
+        this.contas = new ArrayList<>();
     }
 
-    public int getNumeroDeContas() {
-        return numeroDeContas;
+    public int numeroDeContasArmazenadas() {
+        return this.contas.size();
     }
 
-    public boolean adicionaConta(Conta conta) {
-        if(this.numeroDeContas == this.contas.length |
-                this.buscaConta(conta.getNumero()) != null) {
-            return false;
+    public boolean adicionaConta(Conta c) {
+        if(this.buscaConta(c.getNumero())!= null) {
+            this.contas.add(c);
+            return true;
         }
-        this.contas[this.numeroDeContas++] = conta;
-        return true;
+        return false;
+    }
+
+    public boolean removeConta(int numero) {
+        Conta c = this.buscaConta(numero);
+        if(c != null) {
+            this.contas.remove(c);
+            return true;
+        }
+        return false;
     }
 
     public Conta buscaConta(int numero) {
-        for(int i = 0; i < this.numeroDeContas; i++) {
-            if(numero == this.contas[i].getNumero()) {
-                return this.contas[i];
+        for (Conta c : this.contas) {
+            if (numero == c.getNumero()) {
+                return c;
             }
         }
         return null;

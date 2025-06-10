@@ -1,5 +1,5 @@
 package gestaocontas;
-
+import enum TipoConta;
 public class Conta {
 
     private int numero;
@@ -7,6 +7,8 @@ public class Conta {
     private double saldo;
     private int senha;
     private HistoricoDeLancamentos historico;
+    private TipoConta tipo;
+    private static int ultimoNumeroDeConta = 101;
 
     public Conta(int numero, Cliente titular, double saldo, int senha) {
         this.numero = numero;
