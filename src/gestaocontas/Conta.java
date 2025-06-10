@@ -1,5 +1,5 @@
 package gestaocontas;
-import enum TipoConta;
+import atividade01.TipoConta;
 public class Conta {
 
     private int numero;

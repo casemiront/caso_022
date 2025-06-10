@@ -14,7 +14,7 @@ public class TesteCaixaEletronico {
         Conta c2 = new Conta(2, cl2, 1000, 123);
         Conta c3 = new Conta(3, cl1, 1000, 123);
 
-        CadastroContas bd = new CadastroContas(5);
+        CadastroContas bd = new CadastroContas();
 
         bd.adicionaConta(c1);
         bd.adicionaConta(c2);
